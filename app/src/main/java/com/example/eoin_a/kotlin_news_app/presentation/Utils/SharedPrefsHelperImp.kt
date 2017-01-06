@@ -40,6 +40,4 @@ public class SharedPrefsHelperImp(var cont : Context) : SharedPrefsHelper {
     override fun addSharedPrefsBool(key : String, value : Boolean) {
             edit.putBoolean(key, value).commit()
     }
-
-
 }
