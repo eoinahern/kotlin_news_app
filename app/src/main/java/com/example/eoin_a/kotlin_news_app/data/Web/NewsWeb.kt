@@ -10,6 +10,8 @@ package com.example.eoin_a.kotlin_news_app.data.Web
  * The New York Times API - http://developer.nytimes.com/
  */
 
+ var NYT_KEY: String = "882c77e922ad42e9ad7f095909107480"
+
 
 
 

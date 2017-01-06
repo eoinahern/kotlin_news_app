@@ -36,6 +36,9 @@ import com.example.eoin_a.kotlin_news_app.domain.Entities.GenericNewsItem
     private fun checkUSA(item : newsItem): Boolean =  item is USATodayArticle
 
 
+
+    //depends on obj structure.
+
     private fun convertNYTimesArticle(nyarticle : NyTimesArticle) : GenericNewsItem
     {
        return  GenericNewsItem("ball", "balls", "balls", "balls", "Balls")
