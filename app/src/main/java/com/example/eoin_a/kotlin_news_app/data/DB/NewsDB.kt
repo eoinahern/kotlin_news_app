@@ -12,9 +12,9 @@ import rx.Observable
 
 public interface NewsDB {
 
-    fun getSources() : Observable<List<NewsSourceItem>>
+    //fun getSources() : Observable<List<NewsSourceItem>>
     fun saveSources(newslist : List<NewsSourceItem>) : Unit
-    fun getArticles() : Observable<List<ArticleItem>>
+    //fun getArticles() : Observable<List<ArticleItem>>
     fun saveArticles(articlelist: List<ArticleItem>) : Unit
 }
 
@@ -25,13 +25,13 @@ public class NewsDBImp : NewsDB {
 
     }
 
-    override fun getSources(): Observable<List<NewsSourceItem>> {
+    /*override fun getSources(): Observable<List<NewsSourceItem>> {
 
-    }
+    }*/
 
-    override fun getArticles(): Observable<List<ArticleItem>> {
+    /*override fun getArticles(): Observable<List<ArticleItem>> {
 
-    }
+    }*/
 
     override fun saveArticles(articlelist: List<ArticleItem>) {
 

@@ -19,25 +19,33 @@ interface SharedPrefsHelper {
 
 }
 
-public class SharedPrefsHelperImp(var cont : Context) : SharedPrefsHelper {
+public class SharedPrefsHelperImp( cont : Context) : SharedPrefsHelper {
 
-    private var prefs : SharedPreferences = cont.defaultSharedPreferences
-    private var edit : SharedPreferences.Editor = prefs.edit()
+    val prefsname: String = "prefs"
+    var prefs: SharedPreferences? = null
+    var edit: SharedPreferences.Editor? = null
+
+
+    init {
+        prefs = cont.getSharedPreferences(prefsname, Context.MODE_PRIVATE)
+        edit = prefs!!.edit()
+    }
+
 
 
     override fun getPrefsStringValue(key: String) : String {
-        return prefs.getString(key, null)
+        return prefs!!.getString(key, "")
     }
 
-    override fun addPrefsStringVal( key : String,  value: String)  {
-            edit.putString(key, value).commit()
+     override fun addPrefsStringVal( key : String,  value: String)  {
+            edit!!.putString(key, value).commit()
     }
 
     override fun getSharedPrefsBool(key : String): Boolean {
-        return prefs.getBoolean(key, false)
+        return prefs!!.getBoolean(key, false)
     }
 
     override fun addSharedPrefsBool(key : String, value : Boolean) {
-            edit.putBoolean(key, value).commit()
+            edit!!.putBoolean(key, value).commit()
     }
 }
