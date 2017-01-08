@@ -1,9 +1,5 @@
 package com.example.eoin_a.kotlin_news_app.data.Entities.Mapper
 
-import com.example.eoin_a.kotlin_news_app.data.Entities.GuardianArticle
-import com.example.eoin_a.kotlin_news_app.data.Entities.NyTimesArticle
-import com.example.eoin_a.kotlin_news_app.data.Entities.USATodayArticle
-import com.example.eoin_a.kotlin_news_app.data.Entities.newsItem
 import com.example.eoin_a.kotlin_news_app.domain.Entities.GenericNewsItem
 
 /**
@@ -11,7 +7,7 @@ import com.example.eoin_a.kotlin_news_app.domain.Entities.GenericNewsItem
  * map various news article objects to generic news article
  */
 
- class ArticleTOGenericItemMapper(var newsitemlist : List<newsItem>) {
+ /*class ArticleTOGenericItemMapper(var newsitemlist : List<newsItem>) {
 
     var genericlist  = arrayListOf<GenericNewsItem>()
 
@@ -53,4 +49,4 @@ import com.example.eoin_a.kotlin_news_app.domain.Entities.GenericNewsItem
     {
         return  GenericNewsItem("ball", "balls", "balls", "balls", "Balls")
     }
-}
+}*/
