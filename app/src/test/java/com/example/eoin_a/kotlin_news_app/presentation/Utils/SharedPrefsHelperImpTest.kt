@@ -14,6 +14,7 @@ import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.verify
+import org.mockito.MockitoAnnotations
 
 
 /**
@@ -29,10 +30,10 @@ class SharedPrefsHelperImpTest {
     @Before
     fun setUp() {
 
-        //MockitoAnnotations.initMocks(this)
-        cont = Mockito.mock(Context::class.java)
+        MockitoAnnotations.initMocks(this)
+        /*cont = Mockito.mock(Context::class.java)
         mockprefs = Mockito.mock(SharedPreferences::class.java)
-        mockprefsedit = Mockito.mock(SharedPreferences.Editor::class.java)
+        mockprefsedit = Mockito.mock(SharedPreferences.Editor::class.java)*/
 
         `when`(cont!!.getSharedPreferences(anyString(), anyInt())).thenReturn(mockprefs!!)
         `when`(mockprefs!!.edit()).thenReturn(mockprefsedit!!)
@@ -50,14 +51,20 @@ class SharedPrefsHelperImpTest {
     @Test
     fun testItemAdded()
     {
+        `when`(mockprefsedit?.putString(anyString(), anyString())).thenReturn(mockprefsedit)
+        `when`(mockprefsedit?.commit()).thenReturn(true)
         prefshelper!!.addPrefsStringVal("thing", "thing")
+
         verify(mockprefsedit)!!.putString(anyString(), anyString())
+        verify(mockprefsedit)!!.commit()
     }
 
     @Test
     fun testGetString()
     {
-        prefshelper!!.getPrefsStringValue("key")
+        `when`(mockprefs!!.getString("key", "")).thenReturn("boo")
+        var boostr : String =  prefshelper!!.getPrefsStringValue("key")
+        Assert.assertEquals(boostr, "boo")
         verify(mockprefs)!!.getString("key", "")
     }
 
